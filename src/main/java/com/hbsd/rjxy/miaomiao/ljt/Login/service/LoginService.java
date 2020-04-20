@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
-import java.util.Random;
 
 
 @Service
@@ -24,9 +23,9 @@ public class LoginService {
     @Transactional
     public void saveUser(String tel, Date uregist){
         User user=new User();
-        user.setTel(DigestUtils.md5Hex(DigestUtils.md5Hex(tel)+ Constant.SALT));
-        user.setUregist(uregist);
-        user.setUsername(RandomUtil.getStringRandom());
+        user.setUserPhone(DigestUtils.md5Hex(DigestUtils.md5Hex(tel)+ Constant.SALT));
+        user.setCreateTime(uregist);
+        user.setUserName(RandomUtil.getStringRandom());
         loginDao.save(user);
     }
 

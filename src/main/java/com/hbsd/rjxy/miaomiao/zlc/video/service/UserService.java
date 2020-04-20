@@ -1,7 +1,6 @@
 package com.hbsd.rjxy.miaomiao.zlc.video.service;
 
 
-import com.hbsd.rjxy.miaomiao.entity.User;
 import com.hbsd.rjxy.miaomiao.zlc.video.dao.UserDao;
 import org.json.JSONException;
 import org.json.JSONObject;

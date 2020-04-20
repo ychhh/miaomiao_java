@@ -4,7 +4,7 @@ package com.hbsd.rjxy.miaomiao.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "recordlikes")
+@Table(name = "recordl_ikes")
 public class RecordLikes {
 
 

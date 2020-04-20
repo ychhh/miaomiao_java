@@ -1,8 +1,6 @@
 package com.hbsd.rjxy.miaomiao.ych.subscription.controller;
 
 import com.google.gson.Gson;
-import com.hbsd.rjxy.miaomiao.entity.Cat;
-import com.hbsd.rjxy.miaomiao.entity.Subscription_record;
 import com.hbsd.rjxy.miaomiao.ych.cat.service.CatService;
 import com.hbsd.rjxy.miaomiao.ych.subscription.service.SubService;
 import org.springframework.beans.factory.annotation.Autowired;

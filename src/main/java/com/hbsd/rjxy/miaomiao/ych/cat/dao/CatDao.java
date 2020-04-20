@@ -1,7 +1,6 @@
 package com.hbsd.rjxy.miaomiao.ych.cat.dao;
 
 import com.hbsd.rjxy.miaomiao.entity.Cat;
-import com.hbsd.rjxy.miaomiao.entity.Subscription_record;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;

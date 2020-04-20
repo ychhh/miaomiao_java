@@ -1,6 +1,5 @@
 package com.hbsd.rjxy.miaomiao.zsh.self.service;
 
-import com.hbsd.rjxy.miaomiao.entity.User;
 import com.hbsd.rjxy.miaomiao.ljt.Login.Constant;
 import com.hbsd.rjxy.miaomiao.zsh.self.dao.SelfDao;
 import org.apache.commons.codec.digest.DigestUtils;

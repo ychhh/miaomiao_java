@@ -1,9 +1,6 @@
 package com.hbsd.rjxy.miaomiao.zlc.video.service;
 
 
-import com.hbsd.rjxy.miaomiao.entity.Comment;
-import com.hbsd.rjxy.miaomiao.entity.Multi_info;
-import com.hbsd.rjxy.miaomiao.entity.User;
 import com.hbsd.rjxy.miaomiao.zlc.video.dao.CommentDao;
 import com.hbsd.rjxy.miaomiao.zlc.video.dao.UserDao;
 import com.hbsd.rjxy.miaomiao.zlc.video.dao.VideoDao;

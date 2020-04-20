@@ -1,6 +1,5 @@
 package com.hbsd.rjxy.miaomiao.zsh.self.control;
 
-import com.hbsd.rjxy.miaomiao.entity.User;
 import com.hbsd.rjxy.miaomiao.ljt.Login.util.DecodeUtil;
 import com.hbsd.rjxy.miaomiao.zlc.utils.RequestUtil;
 import com.hbsd.rjxy.miaomiao.zlc.video.service.VideoService;

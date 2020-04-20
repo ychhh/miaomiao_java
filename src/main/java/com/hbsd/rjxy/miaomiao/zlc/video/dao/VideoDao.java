@@ -1,12 +1,10 @@
 package com.hbsd.rjxy.miaomiao.zlc.video.dao;
 
-import com.hbsd.rjxy.miaomiao.entity.Multi_info;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Date;
 import java.util.List;
 
 public interface VideoDao extends JpaRepository<Multi_info,Integer> {

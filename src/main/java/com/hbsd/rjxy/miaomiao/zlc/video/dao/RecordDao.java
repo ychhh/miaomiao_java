@@ -1,6 +1,5 @@
 package com.hbsd.rjxy.miaomiao.zlc.video.dao;
 
-import com.hbsd.rjxy.miaomiao.entity.Comment;
 import com.hbsd.rjxy.miaomiao.entity.RecordLikes;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

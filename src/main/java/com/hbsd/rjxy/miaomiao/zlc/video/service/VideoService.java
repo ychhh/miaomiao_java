@@ -1,7 +1,6 @@
 package com.hbsd.rjxy.miaomiao.zlc.video.service;
 
 
-import com.hbsd.rjxy.miaomiao.entity.Multi_info;
 import com.hbsd.rjxy.miaomiao.zlc.utils.QiniuUtils;
 import com.hbsd.rjxy.miaomiao.zlc.video.dao.VideoDao;
 import org.springframework.beans.factory.annotation.Autowired;

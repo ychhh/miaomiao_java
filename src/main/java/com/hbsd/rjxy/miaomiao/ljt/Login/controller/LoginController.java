@@ -1,6 +1,5 @@
 package com.hbsd.rjxy.miaomiao.ljt.Login.controller;
 
-import com.hbsd.rjxy.miaomiao.entity.User;
 import com.hbsd.rjxy.miaomiao.ljt.Login.service.LoginService;
 import com.hbsd.rjxy.miaomiao.ljt.Login.util.DecodeUtil;
 import com.hbsd.rjxy.miaomiao.zlc.utils.RequestUtil;
@@ -122,5 +121,11 @@ public class LoginController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @RequestMapping("findOne")
+    @ResponseBody
+    public String findAll(){
+        return loginService.findUserById(1).toString();
     }
 }

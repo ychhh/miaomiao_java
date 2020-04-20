@@ -1,11 +1,7 @@
 package com.hbsd.rjxy.miaomiao.ych.cat.service;
 
-import com.hbsd.rjxy.miaomiao.entity.Cat;
-import com.hbsd.rjxy.miaomiao.entity.Subscription_record;
 import com.hbsd.rjxy.miaomiao.ych.cat.dao.CatDao;
-import com.hbsd.rjxy.miaomiao.ych.subscription.dao.SubDao;
 import com.hbsd.rjxy.miaomiao.zlc.utils.QiniuUtils;
-import com.qiniu.common.QiniuException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

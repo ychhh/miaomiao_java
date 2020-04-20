@@ -1,9 +1,6 @@
 package com.hbsd.rjxy.miaomiao.zlc.video.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
-import com.hbsd.rjxy.miaomiao.entity.Comment;
-import com.hbsd.rjxy.miaomiao.entity.Multi_info;
 import com.hbsd.rjxy.miaomiao.zlc.utils.RequestUtil;
 import com.hbsd.rjxy.miaomiao.zlc.utils.TimeUtils;
 import com.hbsd.rjxy.miaomiao.zlc.video.service.CommentService;
@@ -20,8 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.TimeZone;
-import java.util.logging.SimpleFormatter;
 
 @Controller
 public class CommentController {
