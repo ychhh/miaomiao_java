@@ -2,13 +2,12 @@ package com.hbsd.rjxy.miaomiao.entity;
 
 import javax.persistence.*;
 import lombok.Data;
-
 import java.util.Date;
 
 /**
  * @Description  
- * @Author
- * @Date 2020-04-20 
+ * @Author  
+ * @Date 2020-04-22 
  */
 
 @Data
@@ -37,25 +36,25 @@ public class User {
 	private String userIntro;
 
    	@Column(name = "head_id" )
-	private Long headId;
+	private int headId;
 
    	@Column(name = "is_vip" )
-	private Long isVip;
+	private int isVip;
 
    	@Column(name = "is_admin" )
-	private Long isAdmin;
+	private int isAdmin;
 
    	@Column(name = "banned_id" )
-	private Long bannedId;
+	private int bannedId;
 
    	@Column(name = "cat_count" )
-	private Long catCount;
+	private int catCount;
 
    	@Column(name = "version" )
-	private Long version;
+	private int version;
 
    	@Column(name = "deleted" )
-	private Long deleted;
+	private int deleted;
 
    	@Column(name = "last_login" )
 	private Date lastLogin;

@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * @Description  
  * @Author  
- * @Date 2020-04-20 
+ * @Date 2020-04-22 
  */
 
 @Data
@@ -15,17 +15,16 @@ import java.util.Date;
 @Table ( name ="cat" )
 public class Cat {
 
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
    	@Column(name = "id" )
-	private Long id;
+	private int id;
 
    	@Column(name = "user_id" )
-	private Long userId;
+	private int userId;
 
    	@Column(name = "city_id" )
-	private Long cityId;
+	private int cityId;
 
    	@Column(name = "cat_name" )
 	private String catName;
@@ -46,10 +45,10 @@ public class Cat {
 	private String catToy;
 
    	@Column(name = "cat_head" )
-	private Long catHead;
+	private int catHead;
 
    	@Column(name = "cat_hot" )
-	private Long catHot;
+	private int catHot;
 
    	@Column(name = "cat_intro" )
 	private String catIntro;
@@ -61,13 +60,13 @@ public class Cat {
 	private String catFood;
 
    	@Column(name = "is_ste" )
-	private Long isSte;
+	private int isSte;
 
    	@Column(name = "version" )
-	private Long version;
+	private int version;
 
    	@Column(name = "deleted" )
-	private Long deleted;
+	private int deleted;
 
    	@Column(name = "create_time" )
 	private Date createTime;

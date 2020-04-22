@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * @Description  
  * @Author  
- * @Date 2020-04-20 
+ * @Date 2020-04-22 
  */
 
 @Data
@@ -18,16 +18,16 @@ public class MultiInfor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
    	@Column(name = "id" )
-	private Long id;
+	private int id;
 
    	@Column(name = "type" )
-	private Long type;
+	private int type;
 
    	@Column(name = "cat_id" )
-	private Long catId;
+	private int catId;
 
    	@Column(name = "user_id" )
-	private Long userId;
+	private int userId;
 
    	@Column(name = "content_path" )
 	private String contentPath;
@@ -36,10 +36,10 @@ public class MultiInfor {
 	private String multiInforContent;
 
    	@Column(name = "multi_infor_visited" )
-	private Long multiInforVisited;
+	private int multiInforVisited;
 
    	@Column(name = "deleted" )
-	private Long deleted;
+	private int deleted;
 
    	@Column(name = "multi_infor_comment_count" )
 	private String multiInforCommentCount;
@@ -48,7 +48,7 @@ public class MultiInfor {
 	private String multiInforFormat;
 
    	@Column(name = "multi_infor_hot" )
-	private Long multiInforHot;
+	private int multiInforHot;
 
    	@Column(name = "multi_infor_address" )
 	private String multiInforAddress;

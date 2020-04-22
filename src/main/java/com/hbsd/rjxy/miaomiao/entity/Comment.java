@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * @Description  
  * @Author  
- * @Date 2020-04-20 
+ * @Date 2020-04-22 
  */
 
 @Data
@@ -18,22 +18,22 @@ public class Comment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
    	@Column(name = "id" )
-	private Long id;
+	private int id;
 
    	@Column(name = "multi_info_id" )
-	private Long multiInfoId;
+	private int multiInfoId;
 
    	@Column(name = "comment_like" )
-	private Long commentLike;
+	private int commentLike;
 
    	@Column(name = "user_id" )
-	private Long userId;
+	private int userId;
 
    	@Column(name = "version" )
-	private Long version;
+	private int version;
 
    	@Column(name = "deleted" )
-	private Long deleted;
+	private int deleted;
 
    	@Column(name = "create_time" )
 	private Date createTime;

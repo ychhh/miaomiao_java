@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * @Description  
  * @Author  
- * @Date 2020-04-20 
+ * @Date 2020-04-22 
  */
 
 @Data
@@ -18,19 +18,19 @@ public class SubscriptionRecord {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
    	@Column(name = "id" )
-	private Long id;
+	private int id;
 
    	@Column(name = "cat_id" )
-	private Long catId;
+	private int catId;
 
    	@Column(name = "user_id" )
-	private Long userId;
+	private int userId;
 
    	@Column(name = "deleted" )
-	private Long deleted;
+	private int deleted;
 
    	@Column(name = "version" )
-	private Long version;
+	private int version;
 
    	@Column(name = "create_time" )
 	private Date createTime;
