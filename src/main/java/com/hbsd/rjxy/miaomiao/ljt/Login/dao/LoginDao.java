@@ -12,17 +12,17 @@ public interface LoginDao extends JpaRepository<User,Integer> {
 
     /**
      * 根据手机号查询User
-     * @param tel
+     * @param userPhone
      * @return
      */
     @Query
-    User findUserByTel(String tel);
+    User findUserByUserPhone(String userPhone);
 
     /**
      * 根据uid查询user
      */
     @Query
-    User findUserByUid(Integer uid);
+    User findUserById(Integer uid);
 
     /**
      * 根据id修改上一次登陆时间
@@ -30,6 +30,6 @@ public interface LoginDao extends JpaRepository<User,Integer> {
      * @param uid
      */
     @Modifying
-    @Query(value = "update user set ulast_login=:time where uid=:uid",nativeQuery = true)
-    void updateUserUlast_LoginById(@Param("time") Date time,@Param("uid")Integer uid);
+    @Query(value = "update user set last_login=:time where id=:uid",nativeQuery = true)
+    void updateUserLastLoginById(@Param("time") Date time,@Param("uid")Integer uid);
 }

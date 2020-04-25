@@ -1,5 +1,6 @@
 package com.hbsd.rjxy.miaomiao.ljt.Login.controller;
 
+import com.hbsd.rjxy.miaomiao.entity.User;
 import com.hbsd.rjxy.miaomiao.ljt.Login.service.LoginService;
 import com.hbsd.rjxy.miaomiao.ljt.Login.util.DecodeUtil;
 import com.hbsd.rjxy.miaomiao.zlc.utils.RequestUtil;
@@ -44,12 +45,12 @@ public class LoginController {
                     //user 为空，表示未注册， 提示用户进行验证码登录
                     res.put("result","false");
                 }else {
-                    if (user.getPwd()!=null){//用户已经设置密码
-                        if (user.getPwd().equals(password)){//密码正确
+                    if (user.getUserPwd()!=null){//用户已经设置密码
+                        if (user.getUserPwd().equals(password)){//密码正确
                             res.put("result","true");
-                            res.put("uid",user.getUid());
-                            res.put("username",user.getUsername());
-                            res.put("userHeadPath",user.getHpath()+"");
+                            res.put("uid",user.getId());
+                            res.put("username",user.getUserName());
+                            res.put("userHeadPath",user.getHeadId()+"");
                         }else {
                             res.put("result","error");
                         }
@@ -98,17 +99,17 @@ public class LoginController {
                     loginService.saveUser(phone,time);
                     User userSave=loginService.findUserByTel(phone);
                     res.put("result","true");
-                    res.put("uid",userSave.getUid());
+                    res.put("uid",userSave.getId());
                     res.put("hasPassword","false");
-                    res.put("username",userSave.getUsername());
-                    res.put("userHeadPath",userSave.getHpath()+"");
+                    res.put("username",userSave.getUserName());
+                    res.put("userHeadPath",userSave.getHeadId()+"");
                 }else {
                     System.out.println("用户验证码登录");
                     res.put("result","true");
-                    res.put("uid",user.getUid());
-                    res.put("username",user.getUsername());
-                    res.put("userHeadPath",user.getHpath()+"");
-                    if (user.getPwd()==null){
+                    res.put("uid",user.getId());
+                    res.put("username",user.getUserName());
+                    res.put("userHeadPath",user.getHeadId()+"");
+                    if (user.getUserPwd()==null){
                         res.put("hasPassword","false");
                     }else {
                         res.put("hasPassword","true");

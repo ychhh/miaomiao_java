@@ -11,9 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
-
 @Service
 public class LoginService {
+
     @Autowired
     private LoginDao loginDao;
     /**
@@ -35,7 +35,7 @@ public class LoginService {
      */
     @Transactional
     public User findUserByTel(String tel){
-        User user=loginDao.findUserByTel(DigestUtils.md5Hex(DigestUtils.md5Hex(tel)+ Constant.SALT));
+        User user=loginDao.findUserByUserPhone(DigestUtils.md5Hex(DigestUtils.md5Hex(tel)+ Constant.SALT));
         return user;
     }
 
@@ -46,7 +46,7 @@ public class LoginService {
      */
     @Transactional
     public User findUserById(Integer uid){
-        User user=loginDao.findUserByUid(uid);
+        User user=loginDao.findUserById(uid);
         return user;
     }
 
