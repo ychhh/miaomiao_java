@@ -18,16 +18,16 @@ public class MultiInfor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
    	@Column(name = "id" )
-	private int id;
+	private Integer id;
 
    	@Column(name = "type" )
-	private int type;
+	private Integer type;
 
    	@Column(name = "cat_id" )
-	private int catId;
+	private Integer catId;
 
    	@Column(name = "user_id" )
-	private int userId;
+	private Integer userId;
 
    	@Column(name = "content_path" )
 	private String contentPath;
@@ -36,10 +36,10 @@ public class MultiInfor {
 	private String multiInforContent;
 
    	@Column(name = "multi_infor_visited" )
-	private int multiInforVisited;
+	private Integer multiInforVisited;
 
    	@Column(name = "deleted" )
-	private int deleted;
+	private Integer deleted;
 
    	@Column(name = "multi_infor_comment_count" )
 	private String multiInforCommentCount;

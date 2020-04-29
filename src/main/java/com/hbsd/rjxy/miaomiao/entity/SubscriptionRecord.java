@@ -18,19 +18,19 @@ public class SubscriptionRecord {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
    	@Column(name = "id" )
-	private int id;
+	private Integer id;
 
    	@Column(name = "cat_id" )
-	private int catId;
+	private Integer catId;
 
    	@Column(name = "user_id" )
-	private int userId;
+	private Integer userId;
 
    	@Column(name = "deleted" )
-	private int deleted;//0 表示不关注 1表示关注
+	private Integer deleted;//0 表示不关注 1表示关注
 
    	@Column(name = "version" )
-	private int version;
+	private Integer version;
 
    	@Column(name = "create_time" )
 	private Date createTime;

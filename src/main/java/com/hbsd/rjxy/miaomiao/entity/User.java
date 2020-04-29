@@ -18,7 +18,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
    	@Column(name = "id" )
-	private int id;
+	private Integer id;
 
    	@Column(name = "user_phone" )
 	private String userPhone;
@@ -39,22 +39,22 @@ public class User {
 	private String headId;//此字段暂时存储头像位置
 
    	@Column(name = "is_vip" )
-	private int isVip;
+	private Integer isVip;
 
    	@Column(name = "is_admin" )
-	private int isAdmin;
+	private Integer isAdmin;
 
    	@Column(name = "banned_id" )
-	private int bannedId;
+	private Integer bannedId;
 
    	@Column(name = "cat_count" )
-	private int catCount;
+	private Integer catCount;
 
    	@Column(name = "version" )
-	private int version;
+	private Integer version;
 
    	@Column(name = "deleted" )
-	private int deleted;
+	private Integer deleted;
 
    	@Column(name = "last_login" )
 	private Date lastLogin;

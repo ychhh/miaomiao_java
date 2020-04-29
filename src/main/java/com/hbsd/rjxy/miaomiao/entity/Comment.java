@@ -18,22 +18,22 @@ public class Comment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
    	@Column(name = "id" )
-	private int id;
+	private Integer id;
 
    	@Column(name = "multi_info_id" )
-	private int multiInfoId;
+	private Integer multiInfoId;
 
    	@Column(name = "comment_like" )
-	private int commentLike;
+	private Integer commentLike;
 
    	@Column(name = "user_id" )
-	private int userId;
+	private Integer userId;
 
    	@Column(name = "version" )
-	private int version;
+	private Integer version;
 
    	@Column(name = "deleted" )
-	private int deleted;
+	private Integer deleted;
 
    	@Column(name = "create_time" )
 	private Date createTime;

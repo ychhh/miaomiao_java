@@ -18,13 +18,13 @@ public class Cat {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
    	@Column(name = "id" )
-	private int id;
+	private Integer id;
 
    	@Column(name = "user_id" )
-	private int userId;
+	private Integer userId;
 
    	@Column(name = "city_id" )
-	private int cityId;
+	private Integer cityId;
 
    	@Column(name = "cat_name" )
 	private String catName;
@@ -60,13 +60,13 @@ public class Cat {
 	private String catFood;
 
    	@Column(name = "is_ste" )
-	private int isSte;
+	private Integer isSte;
 
    	@Column(name = "version" )
-	private int version;
+	private Integer version;
 
    	@Column(name = "deleted" )
-	private int deleted;
+	private Integer deleted;
 
    	@Column(name = "create_time" )
 	private Date createTime;
