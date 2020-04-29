@@ -1,5 +1,6 @@
 package com.hbsd.rjxy.miaomiao.zlc.video.dao;
 
+import com.hbsd.rjxy.miaomiao.entity.MultiInfor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -7,13 +8,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public interface VideoDao extends JpaRepository<Multi_info,Integer> {
+public interface VideoDao extends JpaRepository<MultiInfor,Integer> {
 
     /**
      * 查询所有视频信息
      */
     @Query( value = "SELECT * FROM multi_info WHERE type=0",nativeQuery = true)
-    List<Multi_info> findAll();
+    List<MultiInfor> findAll();
 
     /**
      * 赠送小鱼干
@@ -22,7 +23,7 @@ public interface VideoDao extends JpaRepository<Multi_info,Integer> {
      */
     @Modifying
     @Transactional(readOnly = false)
-    @Query( value = "UPDATE multi_info set mhot=mhot+1 where miid=? ",nativeQuery = true)
+    @Query( value = "UPDATE multi_info set multi_infor_hot=multi_infor_hot+1 where id=? ",nativeQuery = true)
     int feedFish(int miid);
 
 
@@ -34,7 +35,7 @@ public interface VideoDao extends JpaRepository<Multi_info,Integer> {
      * @return
      */
     @Query(value = "SELECT * FROM multi_info where type=0 limit ?,?",nativeQuery = true)
-    List<Multi_info> findVideoPaging(int start,int step);
+    List<MultiInfor> findVideoPaging(int start,int step);
 
 
     /**
@@ -43,20 +44,24 @@ public interface VideoDao extends JpaRepository<Multi_info,Integer> {
      * @return
      */
     @Modifying
-    @Query(value = "UPDATE multi_info SET mcomment_count=mcomment_count+1 WHERE miid=?",nativeQuery = true)
+    @Query(value = "UPDATE multi_info SET multi_infor_comment_count=multi_infor_comment_count+1 WHERE id=?",nativeQuery = true)
     int addVideoCommentAccount(int miid);
 
 
     @Modifying
     @Transactional(readOnly = false)
-    @Query(value = "INSERT INTO multi_info(type,cid,uid,mpath,mupload_time,mcontent,mvisited,mstatus,mcomment_count,mformat,mhot,maddress,mcover,mrecommended,mtag)" +
+    @Query(value = "INSERT INTO multi_info(type,cat_id,user_id,content_path,create_time,multi_infor_content,multi_infor_visited,deleted," +
+            "multi_infor_comment_count,multi_infor_format,multi_infor_hot,multi_infor_address,multi_infor_cover,multi_infor_recommended,multi_infor_tag)" +
             " VALUES(?,?,?,?,?,?,0,0,0,?,0,1,?,0.1,1)",nativeQuery =true)
+  /*  @Query(value = "INSERT INTO multi_info(type,cid,uid,mpath,mupload_time,mcontent,mvisited,mstatus,mcomment_count,mformat,mhot,maddress,mcover,mrecommended,mtag)" +
+            " VALUES(?,?,?,?,?,?,0,0,0,?,0,1,?,0.1,1)",nativeQuery =true)*/
     int publishMulti(int type, int cid, int uid, String mpath, String mupload_time,String mcontent,String mformat,String cover);
 
 
 
-    @Query(value = "SELECT * from multi_info where cid=? order by mupload_time desc",nativeQuery = true)
-    List<Multi_info> getAllByCid(int cid);
+    @Query(value = "SELECT * from multi_info where cat_id=? order by create_time desc",nativeQuery = true)
+    //@Query(value = "SELECT * from multi_info where cid=? order by mupload_time desc",nativeQuery = true)
+    List<MultiInfor> getAllByCatId(int cid);
 
 
 

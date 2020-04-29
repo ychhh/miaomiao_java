@@ -41,4 +41,10 @@ public class Comment {
    	@Column(name = "update_time" )
 	private Date updateTime;
 
+   	@Column(name = "comment_content")
+   	private String commentContent;
+
+   	public void setCreateTime(String creatTime){
+   		this.createTime=createTime;
+	}
 }

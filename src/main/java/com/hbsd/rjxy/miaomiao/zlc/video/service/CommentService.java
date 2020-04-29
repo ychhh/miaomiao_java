@@ -1,6 +1,9 @@
 package com.hbsd.rjxy.miaomiao.zlc.video.service;
 
 
+import com.hbsd.rjxy.miaomiao.entity.Comment;
+import com.hbsd.rjxy.miaomiao.entity.MultiInfor;
+import com.hbsd.rjxy.miaomiao.entity.User;
 import com.hbsd.rjxy.miaomiao.zlc.video.dao.CommentDao;
 import com.hbsd.rjxy.miaomiao.zlc.video.dao.UserDao;
 import com.hbsd.rjxy.miaomiao.zlc.video.dao.VideoDao;
@@ -21,8 +24,8 @@ public class CommentService {
     @Autowired
     UserDao userDao;
 
-    public List<Comment> findCommentsByMiid(Multi_info multi_info){
-        return commentDao.findCommentsByMiid(multi_info.getMiid());
+    public List<Comment> findCommentsByMiid(MultiInfor multi_info){
+        return commentDao.findCommentsByMultiInfoId(multi_info.getId());//ljt 更改
     }
 
 
@@ -33,13 +36,13 @@ public class CommentService {
      *
      */
     public List<Comment> findCommentsByMiidAndPage(int miid,int page){
-        return commentDao.findCommentsByMiidAndPage(miid,(page-1)*COMMENT_PAGING_STEP,COMMENT_PAGING_STEP);
+        return commentDao.findCommentsByMultiInfoIdAndPage(miid,(page-1)*COMMENT_PAGING_STEP,COMMENT_PAGING_STEP);
     }
 
 
 
     public List<Comment> findCommentsByMiidAndPageForLogin(int miid,int page){
-        return commentDao.findCommentsByMiidAndPage(miid,(page-1)*COMMENT_PAGING_STEP,COMMENT_PAGING_STEP);
+        return commentDao.findCommentsByMultiInfoIdAndPage(miid,(page-1)*COMMENT_PAGING_STEP,COMMENT_PAGING_STEP);
     }
 
 
@@ -53,19 +56,20 @@ public class CommentService {
     @Transactional(rollbackFor = Exception.class)
     public int addComment(Comment comment){
         //增加视频评论数
-        videoDao.addVideoCommentAccount(comment.getMiid());
+        videoDao.addVideoCommentAccount(comment.getId());
         //查询uid的upath和uname
-        User user = userDao.findUserByUid(comment.getUid());
+        User user = userDao.findUserById(comment.getUserId());
 //        //插入评论
-//        commentDao.addComment(comment.getMiid()
-//                ,comment.getColike()
-//                ,comment.getCostatus()
-//                ,comment.getUid()
-//                ,comment.getCocontent()
-//                ,comment.getPublishTime()
-//                ,user.getHpath()
-//                ,user.getUsername());
-        return commentDao.findId(comment.getUid(),comment.getPublishTime());
+        commentDao.addComment(comment.getMultiInfoId()
+                ,comment.getCommentLike()
+                ,comment.getDeleted()
+                ,comment.getUserId()
+                ,comment.getCommentContent()
+                ,comment.getCreateTime().toString()
+                ,user.getHeadId()
+                ,user.getUserName());
+        //return commentDao.findId(comment.getUserId(),comment.getPublishTime());
+        return commentDao.findId(comment.getUserId(),comment.getCreateTime().toString());//ljt 更改后
     }
 
 
@@ -76,7 +80,8 @@ public class CommentService {
      *
      */
     public int deleteCommentByCoid(Comment comment){
-        return commentDao.deleteCommentByCoid(comment.getCoid());
+        //return commentDao.deleteCommentByCoid(comment.getCoid());
+        return commentDao.deleteCommentByCoid(comment.getId());//更改后
     }
 
 

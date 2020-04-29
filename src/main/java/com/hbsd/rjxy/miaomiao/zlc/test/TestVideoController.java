@@ -52,11 +52,12 @@ public class TestVideoController {
     @ResponseBody
     public String addComment(HttpServletRequest request, HttpServletResponse response){
         Comment comment = new Comment();
-        comment.setMiid(1);
+        // todo TestVideo
+       /* comment.setMiid(1);
         comment.setCocontent("爱了爱了");
         comment.setColike(0);
         comment.setCostatus(0);
-        comment.setUid(1);
+        comment.setUid(1);*/
 
         return commentService.addComment(comment)+"";
     }
@@ -69,12 +70,13 @@ public class TestVideoController {
     @ResponseBody
     public String deleteCommentByCoid(HttpServletRequest request, HttpServletResponse response){
         Comment comment = new Comment();
-        comment.setCoid(1);
+        //todo
+        /*comment.setCoid(1);
         comment.setMiid(1);
         comment.setCocontent("爱了爱了");
         comment.setColike(0);
         comment.setCostatus(0);
-        comment.setUid(1);
+        comment.setUid(1);*/
         commentService.deleteCommentByCoid(comment);
         return "success";
     }

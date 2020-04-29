@@ -45,7 +45,7 @@ public class Cat {
 	private String catToy;
 
    	@Column(name = "cat_head" )
-	private int catHead;
+	private String catHead;
 
    	@Column(name = "cat_hot" )
 	private int catHot;

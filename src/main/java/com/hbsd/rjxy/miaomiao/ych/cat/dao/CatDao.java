@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface CatDao extends JpaRepository<Cat,Integer>, JpaSpecificationExecutor<Cat> {
-    @Query( value = "SELECT * FROM cat WHERE uid=?",nativeQuery = true)
-    List<Cat> findAllByUid(int uid);
-    @Query( value = "SELECT * FROM cat WHERE cid=?",nativeQuery = true)
-    Cat findAllByCid(int cid);
+    @Query( value = "SELECT * FROM cat WHERE user_id=?",nativeQuery = true)
+    List<Cat> findAllByUserId(int uid);
+    @Query( value = "SELECT * FROM cat WHERE id=?",nativeQuery = true)
+    Cat findAllById(int cid);
 }

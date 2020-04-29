@@ -36,7 +36,7 @@ public class User {
 	private String userIntro;
 
    	@Column(name = "head_id" )
-	private int headId;
+	private String headId;//此字段暂时存储头像位置
 
    	@Column(name = "is_vip" )
 	private int isVip;

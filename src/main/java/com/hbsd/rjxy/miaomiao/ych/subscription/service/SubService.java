@@ -1,6 +1,7 @@
 package com.hbsd.rjxy.miaomiao.ych.subscription.service;
 
 
+import com.hbsd.rjxy.miaomiao.entity.SubscriptionRecord;
 import com.hbsd.rjxy.miaomiao.ych.subscription.dao.SubDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,22 +13,22 @@ import java.util.List;
 public class SubService {
     @Autowired
     private SubDao subDao;
-    public List<Subscription_record> findall(){
+    public List<SubscriptionRecord> findall(){
         return subDao.findAll();
     }
-    public List<Subscription_record> findAllByUid(int uid){
-        for (Subscription_record record:subDao.findAllByUid(uid)){
+    public List<SubscriptionRecord> findAllByUid(int uid){
+        for (SubscriptionRecord record:subDao.findAllByUserId(uid)){
             System.out.println("1"+record.toString());
         }
-        return subDao.findAllByUid(uid);
+        return subDao.findAllByUserId(uid);
     }
-    public List<Subscription_record> findAllByCid(int cid){
-        return subDao.findAllByCid(cid);
+    public List<SubscriptionRecord> findAllByCid(int cid){
+        return subDao.findAllByCatId(cid);
     }
-    public List<Subscription_record> findOneByUidAndCid(int uid,int cid){
-        return subDao.findAllByUidAndUid(uid,cid);
+    public List<SubscriptionRecord> findOneByUidAndCid(int uid,int cid){
+        return subDao.findAllByUserIdAndCatId(uid,cid);
     }
-    public List<Subscription_record> follow(int uid, int cid){
+    public List<SubscriptionRecord> follow(int uid, int cid){
         if(findOneByUidAndCid(uid, cid).size()!=0){
             subDao.follow(uid,cid);
             try {
@@ -38,14 +39,14 @@ public class SubService {
             return findAllByUid(uid);
         }else {
             Date date=new Date();
-            Subscription_record subscription_record=new Subscription_record();
-            subscription_record.setCid(cid);
-            subscription_record.setUid(uid);
-            subscription_record.setSubscription_status(1);
+            SubscriptionRecord subscription_record=new SubscriptionRecord();
+            subscription_record.setCatId(cid);
+            subscription_record.setUserId(uid);
+            //subscription_record.setSubscription_status(1);//设置状态部分未定（ljt更改）
             Date sqlDate = new java.sql.Date(new Date().getTime());
-            subscription_record.setSubscription_time((java.sql.Date) sqlDate);
+            subscription_record.setCreateTime((java.sql.Date) sqlDate);//ljt更改
             System.out.println(sqlDate);
-            System.out.println(subscription_record.getSubscription_time());
+            System.out.println(subscription_record.getCreateTime());
             subDao.save(subscription_record);
             return findAllByUid(uid);
         }

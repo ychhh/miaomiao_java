@@ -1,5 +1,6 @@
 package com.hbsd.rjxy.miaomiao.zsh.self.control;
 
+import com.hbsd.rjxy.miaomiao.entity.User;
 import com.hbsd.rjxy.miaomiao.ljt.Login.util.DecodeUtil;
 import com.hbsd.rjxy.miaomiao.zlc.utils.RequestUtil;
 import com.hbsd.rjxy.miaomiao.zlc.video.service.VideoService;
@@ -156,16 +157,17 @@ public class SelfControl {
                 User user=selfService.findUserById(id);
                 /*发送给用户的信息*/
                 if(user!=null){
-                    System.out.print(user.getUid());
-                    System.out.print(user.getUsername());
-                    System.out.print(user.getUintro());
-                    System.out.print(user.getUsex());
+                    //todo selfcontroller
+                    System.out.print(user.getId());
+                    System.out.print(user.getUserName());
+                    System.out.print(user.getUserIntro());
+                    System.out.print(user.getUserSex());
 
-                    res.put("uid",user.getUid());
-                    res.put("uName",user.getUsername());
-                    res.put("uSex",user.getUsex());
-                    res.put("uIntro",user.getUintro());
-                    res.put("hpath",user.getHpath());
+                    res.put("uid",user.getId());
+                    res.put("uName",user.getUserName());
+                    res.put("uSex",user.getUserSex());
+                    res.put("uIntro",user.getUserIntro());
+                    res.put("hpath",user.getHeadId());
                 }
             }
             is.close();

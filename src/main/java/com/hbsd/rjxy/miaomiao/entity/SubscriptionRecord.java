@@ -27,7 +27,7 @@ public class SubscriptionRecord {
 	private int userId;
 
    	@Column(name = "deleted" )
-	private int deleted;
+	private int deleted;//0 表示不关注 1表示关注
 
    	@Column(name = "version" )
 	private int version;

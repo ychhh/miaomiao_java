@@ -1,6 +1,8 @@
 package com.hbsd.rjxy.miaomiao.ych.subscription.controller;
 
 import com.google.gson.Gson;
+import com.hbsd.rjxy.miaomiao.entity.Cat;
+import com.hbsd.rjxy.miaomiao.entity.SubscriptionRecord;
 import com.hbsd.rjxy.miaomiao.ych.cat.service.CatService;
 import com.hbsd.rjxy.miaomiao.ych.subscription.service.SubService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,12 +55,13 @@ public class SubController {
     @ResponseBody
     public String getSubCatByUid(int uid){
         List<Cat> cats=new ArrayList<>();
-        List<Subscription_record> records=subService.findAllByUid(uid);
-        for (Subscription_record record :records){
+        List<SubscriptionRecord> records=subService.findAllByUid(uid);
+        for (SubscriptionRecord record :records){
             System.out.println(record.toString());
 
-            if (record.getSubscription_status()==1) {
-                int cid = record.getCid();
+            //todo 待验证
+            if (record.getDeleted()==1) {
+                int cid = record.getCatId();
                 System.out.println(cid+"kljaskdlks");
                 cats.add(catService.findAllByCid(cid));
             }

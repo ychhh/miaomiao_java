@@ -1,6 +1,8 @@
 package com.hbsd.rjxy.miaomiao.zlc.video.controller;
 
 import com.google.gson.Gson;
+import com.hbsd.rjxy.miaomiao.entity.Comment;
+import com.hbsd.rjxy.miaomiao.entity.MultiInfor;
 import com.hbsd.rjxy.miaomiao.zlc.utils.RequestUtil;
 import com.hbsd.rjxy.miaomiao.zlc.utils.TimeUtils;
 import com.hbsd.rjxy.miaomiao.zlc.video.service.CommentService;
@@ -42,7 +44,7 @@ public class CommentController {
     @RequestMapping("/comment/findCommentsByMiid")
     @ResponseBody
     public String findCommentsByMiid(HttpServletRequest request, HttpServletResponse response){
-        Multi_info multi_info = gson.fromJson(RequestUtil.getJson(request),Multi_info.class);
+        MultiInfor multi_info = gson.fromJson(RequestUtil.getJson(request),MultiInfor.class);
         return gson.toJson(commentService.findCommentsByMiid(multi_info));
     }
 
@@ -79,8 +81,9 @@ public class CommentController {
     @ResponseBody
     public String addComment(HttpServletRequest request, HttpServletResponse response){
         Comment comment = gson.fromJson(RequestUtil.getJson(request), Comment.class);
-        comment.setPublishTime(TimeUtils.getTime());
-        comment.setCoid((commentService.addComment(comment)));
+        //todo 待验证
+        comment.setCreateTime(TimeUtils.getTime());
+        comment.setId((commentService.addComment(comment)));
         return gson.toJson(comment);
     }
 

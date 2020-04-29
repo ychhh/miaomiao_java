@@ -1,6 +1,7 @@
 package com.hbsd.rjxy.miaomiao.zlc.video.service;
 
 
+import com.hbsd.rjxy.miaomiao.entity.MultiInfor;
 import com.hbsd.rjxy.miaomiao.zlc.utils.QiniuUtils;
 import com.hbsd.rjxy.miaomiao.zlc.video.dao.VideoDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class VideoService {
     @Autowired
     VideoDao videoDao;
 
-    public List<Multi_info> findAll(){
+    public List<MultiInfor> findAll(){
         return videoDao.findAll();
     }
 
@@ -37,7 +38,7 @@ public class VideoService {
      *              PAGING_STEP是每次分页查询的数量
      * @return
      */
-    public List<Multi_info> findVideoPaging(int page){
+    public List<MultiInfor> findVideoPaging(int page){
         System.out.println("page"+page);
         return videoDao.findVideoPaging((page-1)*PAGING_STEP,PAGING_STEP);
     }
@@ -57,13 +58,14 @@ public class VideoService {
         发布
     
      */
-    public int publishMulti(Multi_info multi_info){
-        return videoDao.publishMulti(multi_info.getType(),multi_info.getCid(),multi_info.getUid(),multi_info.getMpath(),multi_info.getMupload_time(),multi_info.getMcontent(),multi_info.getMformat(),multi_info.getMcover());
+    public int publishMulti(MultiInfor multi_info){
+        //return videoDao.publishMulti(multi_info.getType(),multi_info.getCid(),multi_info.getUid(),multi_info.getMpath(),multi_info.getMupload_time(),multi_info.getMcontent(),multi_info.getMformat(),multi_info.getMcover());
+        return videoDao.publishMulti(multi_info.getType(),multi_info.getCatId(),multi_info.getUserId(),multi_info.getContentPath(),multi_info.getCreateTime().toString(),multi_info.getContentPath(),multi_info.getMultiInforFormat(),multi_info.getMultiInforCover());
     }
 
 
-    public List<Multi_info> getAllByCid(int cid){
-        return videoDao.getAllByCid(cid);
+    public List<MultiInfor> getAllByCid(int cid){
+        return videoDao.getAllByCatId(cid);
     }
 
 

@@ -15,13 +15,13 @@ public interface SelfDao extends JpaRepository<User,Integer> {
      * @return
      */
     @Query
-    User findUserByTel(String tel);
+    User findUserByUserPhone(String tel);
 
     /**
      * 根据uid查询user
      */
     @Query
-    User findUserByUid(Integer uid);
+    User findUserById(Integer uid);
 
     /**
      * 根据id修改上一次登陆时间
@@ -29,7 +29,7 @@ public interface SelfDao extends JpaRepository<User,Integer> {
      * @param uid
      */
     @Modifying
-    @Query(value = "update user set ulast_login=:time where uid=:uid",nativeQuery = true)
+    @Query(value = "update user set last_login=:time where id=:uid",nativeQuery = true)
     void updateUserUlast_LoginById(@Param("time") Date time, @Param("uid")Integer uid);
     /**
      * 根据id修改姓名
@@ -37,7 +37,7 @@ public interface SelfDao extends JpaRepository<User,Integer> {
      * @param uid
      */
     @Modifying
-    @Query(value = "update user set username=:name where uid=:uid",nativeQuery = true)
+    @Query(value = "update user set user_name=:name where id=:uid",nativeQuery = true)
     void updateUserNameById(@Param("name") String name,@Param("uid")Integer uid);
     /**
      * 根据id修改性别
@@ -45,7 +45,7 @@ public interface SelfDao extends JpaRepository<User,Integer> {
      * @Param uid
      */
     @Modifying
-    @Query(value = "update user set usex=:sex where uid =:uid",nativeQuery = true)
+    @Query(value = "update user set user_sex=:sex where id =:uid",nativeQuery = true)
     void updateUserSexById(@Param("sex")String sex,@Param("uid") Integer uid);
     /**
      * 根据id修改简介
@@ -53,7 +53,7 @@ public interface SelfDao extends JpaRepository<User,Integer> {
      * @Param uid
      */
     @Modifying
-    @Query(value = "update user set uintro=:intro where uid =:uid",nativeQuery = true)
+    @Query(value = "update user set user_intro=:intro where id =:uid",nativeQuery = true)
     void updateUserIntroById(@Param("intro")String intro,@Param("uid") Integer uid);
     /**
      * 根据id修改密码
@@ -61,7 +61,7 @@ public interface SelfDao extends JpaRepository<User,Integer> {
      * @Param uid
      */
     @Modifying
-    @Query(value = "update user set pwd=:pwd where uid =:uid",nativeQuery = true)
+    @Query(value = "update user set user_pwd=:pwd where id =:uid",nativeQuery = true)
     int updateUserPwdById(@Param("pwd")String pwd,@Param("uid") Integer uid);
     /**
      * 根据id修改用户头像
@@ -70,7 +70,7 @@ public interface SelfDao extends JpaRepository<User,Integer> {
      * @return
      */
     @Modifying
-    @Query(value = "update user set hpath=:hpath where uid =:uid",nativeQuery = true)
+    @Query(value = "update user set head_id=:hpath where id =:uid",nativeQuery = true)
     int updateUserHpathById(@Param("hpath") String hpath,@Param("uid") Integer uid);
 
 
@@ -85,6 +85,7 @@ public interface SelfDao extends JpaRepository<User,Integer> {
      *
      */
     @Modifying
-    @Query(value = "update user set username=:name,uintro=:uintro,usex=:usex where uid =:uid",nativeQuery = true)
+    @Query(value = "update user set user_name=:name,user_intro=:uintro,user_sex=:usex where id =:uid",nativeQuery = true)
     int updateUserMsgById(@Param("name")String username,@Param("usex")String sex,@Param("uintro")String uintro,@Param("uid") Integer uid);
+
 }

@@ -1,6 +1,7 @@
 package com.hbsd.rjxy.miaomiao.ych.cat.controller;
 
 import com.google.gson.Gson;
+import com.hbsd.rjxy.miaomiao.entity.Cat;
 import com.hbsd.rjxy.miaomiao.ych.cat.service.CatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +33,8 @@ public class CatController {
     @ResponseBody
     public String setCatHead(String url){
         Cat cat=new Cat();
-        cat.setHpath(url);
+        //todo 待检查
+        cat.setCatHead(url);
         System.out.println(cat.toString());
         return gson.toJson(catService.saveCat(cat));
     }
