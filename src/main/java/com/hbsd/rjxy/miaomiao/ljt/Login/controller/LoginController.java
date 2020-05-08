@@ -1,9 +1,11 @@
 package com.hbsd.rjxy.miaomiao.ljt.Login.controller;
 
 import com.hbsd.rjxy.miaomiao.entity.User;
+import com.hbsd.rjxy.miaomiao.ljt.Login.Constant;
 import com.hbsd.rjxy.miaomiao.ljt.Login.service.LoginService;
 import com.hbsd.rjxy.miaomiao.ljt.Login.util.DecodeUtil;
 import com.hbsd.rjxy.miaomiao.zlc.utils.RequestUtil;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +48,7 @@ public class LoginController {
                     res.put("result","false");
                 }else {
                     if (user.getUserPwd()!=null){//用户已经设置密码
-                        if (user.getUserPwd().equals(password)){//密码正确
+                        if (user.getUserPwd().equals(DigestUtils.md5Hex(DigestUtils.md5Hex(password)+ Constant.SALT))){//密码正确
                             res.put("result","true");
                             res.put("uid",user.getId());
                             res.put("username",user.getUserName());

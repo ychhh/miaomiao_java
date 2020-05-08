@@ -62,4 +62,7 @@ public class User {
    	@Column(name = "create_time" )
 	private Date createTime;
 
+   	@Column(name="qq_num")
+   	private String qqNum;
+
 }
